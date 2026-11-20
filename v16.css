@@ -1,0 +1,15 @@
+/* RE:CORD ver16 — user-approved monster illustrations. */
+/* Source poster right-hand label panels are excluded from the display so labels appear once, legibly, in the site's adjacent text panel. */
+.kaii-layout { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(24px,4.5vw,66px); align-items:center; }
+.kaii-portrait { height: 680px; background:#111317; border-color:rgba(205,175,130,.43); }
+.kaii-image { background: radial-gradient(ellipse at center, #272724 0%, #121418 70%, #0e1013 100%); }
+.kaii-image > img { object-fit: contain; object-position:center center; padding:0; }
+.kaii-portrait::after { box-shadow:inset 0 0 55px rgba(4,6,9,.13); }
+.kaii-copy { min-height:420px; }
+@media (max-width: 760px) {
+ .kaii-layout { grid-template-columns:1fr; gap:16px; }
+ .kaii-portrait { height: min(132vw,570px); }
+ .kaii-copy { min-height:0; }
+ .kaii-image > img { padding:0; }
+}
+@media (max-width:420px) { .kaii-portrait { height:490px; } }

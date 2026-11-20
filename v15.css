@@ -1,0 +1,49 @@
+/* RE:CORD ver15 — transparent PNG portraits and four monster files */
+/* Characters: never flatten PNGs against white, or crop a full-body illustration. */
+.character-image > img, .dossier-asset > img {
+  object-fit: contain;
+  object-position: center bottom;
+}
+/* The right side remains fixed while switching across the 7 characters. */
+.character-image { background: radial-gradient(ellipse at 46% 56%,rgba(83,111,79,.23),transparent 60%); }
+/* Monster selection: subtle frames inspired by archival record dividers. */
+.kaii-intro { margin: -8px 0 30px; color:#D0C7B4; font:400 14px/2.1 var(--font-jp); letter-spacing:.04em; }
+.kaii-tabs {display:grid; grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-bottom:29px;}
+.kaii-tabs button {min-width:0;text-align:left;display:flex;flex-direction:column;gap:9px;padding:17px 20px 15px;border:1px solid rgba(201,172,119,.37);background:linear-gradient(140deg,#1B2920,#162019);color:#EDE2CB;cursor:pointer;transition:background .2s,border-color .2s;}
+.kaii-tabs button:hover,.kaii-tabs button:focus-visible {border-color:#E7C999;background:#26392B;}
+.kaii-tabs button[aria-selected="true"] {border-color:#D8B77B;background:linear-gradient(140deg,#334633,#1E2C23);box-shadow:inset 0 -3px 0 #B65B4A;}
+.kaii-tab-number {font:500 10px/1.2 var(--font-latin);letter-spacing:.21em;color:#BEA780;}
+.kaii-tab-name {font:500 clamp(19px,2.1vw,26px)/1.3 var(--font-jp);letter-spacing:.12em;}
+.kaii-layout {align-items:stretch;gap:clamp(25px,4vw,60px);}
+.kaii-portrait {height:510px;min-height:0;background:radial-gradient(ellipse at 55% 60%,#304438,#16241C 70%);}
+.kaii-image>img {object-fit:contain;object-position:center bottom;padding:22px 20px 12px;}
+.kaii-image {background:radial-gradient(ellipse at 50% 45%,rgba(91,115,80,.18),transparent 60%);}
+.kaii-image .asset-placeholder {padding:25px;}
+.kaii-image .asset-name {font-size:clamp(12px,1.2vw,15px);overflow-wrap:anywhere;}
+.kaii-copy {display:flex;flex-direction:column;min-height:0;padding:18px 0 14px;}
+.kaii-copy .small-label {flex-shrink:0;}
+.kaii-file-index {float:right;margin-left:13px;font:400 11px var(--font-latin);color:#AFA184;}
+.kaii-grade {display:inline-flex;align-items:center;gap:13px;align-self:flex-start;margin:34px 0 0;padding:6px 13px;border:1px solid rgba(198,165,114,.45);color:#E8D4AF;font:500 12px var(--font-jp);letter-spacing:.12em;}
+.kaii-grade span {color:#D9B49C;padding-left:13px;border-left:1px solid rgba(198,165,114,.4);}
+.kaii-copy h3 {margin:17px 0 22px;}
+.kaii-copy h3 small[hidden] {display:none;}
+.kaii-description {flex:1 1 auto;min-height:0;max-height:245px;overflow:auto;padding-right:7px;scrollbar-color:#7B725C transparent;scrollbar-width:thin;}
+.kaii-copy .kaii-caption {flex-shrink:0;margin-top:23px;}
+.kaii-endnote {margin:21px 0 0;font:400 11px/1.9 var(--font-jp);color:#B7A991;letter-spacing:.04em;}
+@media(max-width:760px) {
+ .kaii-intro{font-size:13px;margin-bottom:22px;}
+ .kaii-tabs {grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-bottom:24px;}
+ .kaii-tabs button {padding:12px 15px;gap:5px;}
+ .kaii-tab-name {font-size:20px;}
+ .kaii-layout {gap:16px;}
+ .kaii-portrait {height:410px;}
+ .kaii-copy {padding:12px 0;}
+ .kaii-grade {margin-top:15px;}
+ .kaii-description {max-height:none;overflow:visible;}
+ .kaii-image>img {padding:14px 9px 8px;}
+}
+@media(max-width:420px) {
+ .kaii-portrait {height:350px;}
+ .kaii-tabs button {padding:10px 12px;}
+ .kaii-copy h3{margin:15px 0 16px;}
+}

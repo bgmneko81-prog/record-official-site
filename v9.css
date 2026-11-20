@@ -1,0 +1,57 @@
+/* RE:CORD ver9 / approved WORLD art + public character dossiers */
+.folklore-grid{align-items:stretch}
+.folklore-card{padding:0;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s ease}
+.folklore-card:hover{border-color:rgba(220,230,255,.42)}
+.folklore-media{height:clamp(215px,22vw,285px);position:relative;overflow:hidden;background:#0D142C}
+.folklore-photo>img{object-fit:cover;filter:saturate(.78) brightness(.82);transition:transform .7s ease, filter .7s ease}
+.folklore-card:first-child .folklore-photo>img{object-position:center 61%}
+.folklore-card:nth-child(2) .folklore-photo>img{object-position:center 44%}
+.folklore-card:hover .folklore-photo>img{transform:scale(1.025);filter:saturate(.9) brightness(.9)}
+.folklore-media-vignette{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,8,23,.1),transparent 44%,rgba(4,7,22,.48))}
+.folklore-body{padding:24px 30px 31px;flex:1}
+.folklore-card h3{margin:12px 0 6px}
+.folklore-card p{line-height:2.0}
+.character-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+.character-details{padding:clamp(27px,3.1vw,53px);min-width:0}
+.character-tabs{gap:7px;margin-bottom:31px;padding-bottom:22px}
+.character-tabs button{min-width:0;flex:1 1 0;padding:10px 4px;font-size:18px}
+.character-tabs button span{font-size:10px;letter-spacing:0;white-space:nowrap}
+.character-panel h3{margin:7px 0 0;font-size:clamp(32px,3vw,46px)}
+.character-reading{display:flex;flex-wrap:wrap;align-items:center;gap:8px 19px;margin:0 0 20px;color:#AAB7D2;font-size:11px;letter-spacing:.12em}
+.character-reading span:last-child{font:400 14px var(--font-latin);letter-spacing:.1em;color:#A8B5D4}
+.character-reading span:empty{display:none}
+.character-quote{margin:0 0 21px;padding:11px 0 12px 15px;border-left:2px solid #D99A65;font:500 clamp(15px,1.4vw,19px)/1.8 var(--font-jp);letter-spacing:.05em;color:#F1F0EB}
+.character-quote[hidden]{display:none!important}
+.character-bio{max-width:58ch}
+.character-panel .character-bio p{margin:0 0 11px;min-height:0;font:400 13px/2.05 var(--font-jp);letter-spacing:.025em;color:#C2CBDA}
+.character-panel .character-bio p:last-child{margin-bottom:0}
+.character-panel .character-bio .character-bio-emphasis{margin-top:15px;color:#F1F0EB;font-weight:600;font-size:15px}
+.character-note{margin-top:27px;font-size:11px;line-height:1.9}
+.character-portrait{min-height:560px}
+.character-image .asset-placeholder{padding:25px}
+@media (max-width:1100px){
+ .character-grid{grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr)}
+ .character-details{padding:25px}
+ .character-tabs{gap:4px}
+ .character-tabs button span{font-size:9px}
+ .character-panel .character-bio p{font-size:12px}
+}
+@media (max-width:760px){
+ .folklore-media{height:clamp(205px,55vw,320px)}
+ .folklore-body{padding:22px 23px 27px}
+ .character-grid{grid-template-columns:1fr}
+ .character-portrait{min-height:330px}
+ .character-details{padding:25px 3px 28px}
+ .character-tabs{gap:5px;margin-bottom:24px}
+ .character-tabs button{padding:10px 3px;font-size:17px}
+ .character-tabs button span{font-size:9px}
+ .character-panel h3{font-size:35px}
+ .character-panel .character-bio p{font-size:13px;line-height:2.05}
+}
+@media (max-width:420px){
+ .character-portrait{min-height:300px}
+ .character-tabs button{font-size:15px;min-width:0;flex:1 1 0}
+ .character-tabs button span{font-size:8px}
+ .character-quote{font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){.folklore-photo>img{transition:none}}

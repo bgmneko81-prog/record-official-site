@@ -1,0 +1,177 @@
+/*
+  Re:CORD — NIGHT STREET ART DIRECTION / v6
+  Mood reference: user-supplied nocturnal street photograph with VHS grain.
+  This file only changes appearance. Original interactions stay in script.js.
+
+  Palette:
+    夜の紺      #070A21
+    深い藍      #101B51
+    青い光      #1A3073
+    街灯の橙    #F36A37 (light only, not generic UI fill)
+    ロゴの白    #F1F0EB
+*/
+:root{
+  --bg:#070A21;
+  --bg2:#0C1334;
+  --blue:#101B51;
+  --paper:#F1F0EB;
+  --muted:#AAB6D0;
+  --faint:#69799B;
+  --warm:#E5AE8D;
+  --lamp:#F36A37;
+  --line:rgba(203,218,253,.17);
+}
+body{background:#070A21;color:var(--paper)}
+.film-grain{opacity:.17;mix-blend-mode:soft-light}
+.scanline-overlay{opacity:.21;background:repeating-linear-gradient(to bottom,transparent 0,transparent 4px,rgba(0,0,0,.37) 5px,transparent 6px)}
+.site-header{background:rgba(3,6,18,.42);border-bottom:1px solid rgba(225,230,255,.12);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.site-header.scrolled{background:rgba(5,8,26,.94)}
+.brand{font-size:32px;letter-spacing:.01em}
+.brand small{color:#9CA6BF}
+.nav a{letter-spacing:.19em;color:#D8D9E4}
+.nav a:hover,.nav a:focus-visible{color:#FFF9F3}
+.nav a::after{background:#E9AB87}
+/* Base image area: artistic but clearly replaceable; not mistaken for an actual scene. */
+.asset-slot{background:radial-gradient(ellipse at 69% 16%,rgba(245,108,44,.08),transparent 31%),radial-gradient(ellipse at 45% 78%,rgba(34,63,153,.30),transparent 62%),linear-gradient(145deg,#070B22,#111D4B 59%,#070B1C)}
+.asset-placeholder{background:linear-gradient(180deg,rgba(8,13,37,.08),rgba(3,5,16,.31));color:#8E9CBC}
+.asset-path{color:#A8B9D8}
+.asset-name{color:#E8E8F0}
+.asset-placeholder::before{border-color:rgba(216,232,255,.23)}
+/* Reference hero image is deliberately the exact image supplied by the user.
+   It already contains the stylized R/D logo, so duplicate HTML lettering is visually hidden.
+   Replacing /assets/images/hero.jpg turns the accessible HTML logo back on. */
+.hero{background:radial-gradient(ellipse at 50% 20%,#142451 0%,#070A21 71%);min-height:680px;max-height:none}
+.hero-image{background:#06091E}
+.hero--reference .hero-image>img{filter:none;animation:none;object-fit:cover;object-position:center center}
+.hero--custom .hero-image>img{filter:brightness(.75) saturate(.95);animation:heroZoom 26s ease-in-out infinite alternate}
+.hero-shade{background:linear-gradient(180deg,rgba(3,5,17,.25) 0%,transparent 27%,transparent 53%,rgba(3,6,18,.37) 66%,rgba(2,4,14,.97) 100%)}
+.hero-vignette{background:radial-gradient(ellipse at center,transparent 40%,rgba(1,2,9,.33) 88%)}
+.hero::before{background:radial-gradient(ellipse at 65% 16%,rgba(243,106,55,.065),transparent 21%)}
+.hero-viewfinder{display:none}
+.hero-rec{top:113px;right:58px;color:rgba(232,237,253,.69);font-size:10px;opacity:.78}
+.hero-rec>b,.capture-top>b{background:#F36A37;box-shadow:0 0 16px rgba(243,106,55,.6)}
+.hero-center{padding:16px 20px;z-index:2;text-shadow:0 2px 22px rgba(0,0,0,.75)}
+.hero--custom .hero-center{margin-top:5vh}
+.hero--reference .hero-center{position:absolute;top:auto;bottom:calc(10vh + 42px);margin:0 auto;max-width:960px}
+.hero--reference .hero-eyebrow,.hero--reference .hero-logo,.hero--reference .hero-ruby{
+  position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;white-space:nowrap;overflow:hidden;margin:0;padding:0;
+}
+.hero--reference .hero-copy{font-size:clamp(16px,1.35vw,22px);font-weight:400;letter-spacing:.2em;line-height:2.1;margin-bottom:21px;color:#FCFBF5}
+.hero--custom .hero-logo{font-size:clamp(98px,13.8vw,218px);font-weight:400;letter-spacing:-.058em;color:#F1F0EB}
+.hero--custom .hero-ruby{font-size:12px}
+.hero-actions{gap:13px}
+.outline-button{border:1px solid rgba(240,239,231,.56);background:rgba(4,7,23,.55);min-width:177px;min-height:50px;letter-spacing:.12em;backdrop-filter:blur(4px)}
+.outline-button:hover{background:rgba(15,28,79,.82);border-color:#EEE8DE;transform:translateY(-2px)}
+.outline-button--light{background:rgba(4,7,23,.30)}
+.hero-bottom{bottom:30px;color:rgba(217,221,239,.72)}
+.scroll-hint{color:#E2E4EF}
+.signal-strip{background:#06091D;color:#8795B8;border-color:rgba(206,221,255,.13);padding:14px 0}
+.signal-strip span:nth-child(2){color:#F36A37;text-shadow:0 0 12px rgba(243,106,55,.75)}
+/* Story, world and camera retain the earlier editorial structure but now feel nocturnal */
+.section{background:#070A21}
+.section::before{background:linear-gradient(180deg,transparent 90%,rgba(15,29,76,.16))}
+.section-heading h2{font-weight:400;letter-spacing:.065em}
+.section-heading p{color:#9DA8C3}
+.section-number,.overline,.small-label,.caption,.character-role,.character-note{color:#ADC0E0}
+.story{background:radial-gradient(ellipse at 78% 20%,rgba(22,48,114,.28),transparent 58%),linear-gradient(160deg,#080B23,#0A1230 56%,#070A20)}
+.story-copy h3{font-weight:400}
+.story-copy h3 em{color:#F1F0EB;text-decoration:underline;text-decoration-color:rgba(237,149,106,.65);text-underline-offset:12px;text-decoration-thickness:1px}
+.story-copy p{color:#BEC6DB}
+.story-copy .story-end{color:#E7E6E3}
+.photo-frame{box-shadow:26px 22px 75px rgba(0,0,0,.18)}
+.photo-frame::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(145deg,transparent 40%,rgba(5,11,27,.34));z-index:1}
+.world{background:linear-gradient(180deg,#080C25,#09112D 45%,#090B21)}
+.world-intro strong{color:#F2EEE9;font-weight:400}
+.world-grid{gap:20px}
+.world-card{border-color:rgba(218,226,248,.16);background:#0A1232}
+.world-card::after{box-shadow:inset 0 0 80px rgba(2,3,9,.3)}
+.world-index{color:#E5E8F3}
+.world-card-body{background:linear-gradient(0deg,rgba(3,6,21,.96),rgba(3,6,21,.1))}
+.world-card-body p{color:#C3CAD9}
+.camera-section{background:radial-gradient(ellipse at 17% 78%,rgba(24,50,113,.33),transparent 46%),#080D26}
+.camera-description h3{font-weight:400}
+.capture-button{background:#0C1837;border-color:rgba(224,229,248,.48)}
+.capture-button:hover{background:#162852;border-color:rgba(249,246,235,.9)}
+.capture-stage{background:#0B1330;border-color:rgba(220,233,255,.31)}
+.capture-tint{background:linear-gradient(130deg,rgba(7,13,36,.4),rgba(6,11,25,.07))}
+.capture-secret{text-shadow:0 0 16px rgba(231,241,255,.38),0 0 25px rgba(75,125,240,.42)}
+.capture-stage.is-recorded .capture-background{filter:hue-rotate(15deg) saturate(.85) contrast(1.13)}
+.capture-stage.is-recorded::after{box-shadow:inset 0 0 120px rgba(50,87,196,.31)}
+.characters{background:linear-gradient(165deg,#070A20,#101B3A 65%,#070B1D)}
+.character-portrait{background:linear-gradient(165deg,#15234C,#080D24)}
+.character-details{background:rgba(5,9,26,.25)}
+.character-tabs button[aria-selected="true"]{border-color:#D3D6E3;background:rgba(49,67,113,.29)}
+.character-role{color:#A9BEE6}
+.movie-section{background:radial-gradient(ellipse at 55% 25%,rgba(33,55,120,.22),transparent 52%),#080D23}
+.movie-thumb{border-color:rgba(220,229,250,.36)}
+.movie-play{background:rgba(7,11,30,.52)}
+.movie-thumb:hover .movie-play{background:rgba(30,59,126,.48)}
+.movie-top>span{color:#D6A68A}
+.movie-footer a{color:#D7DBED}
+.closing{background:radial-gradient(ellipse at 50% 110%,rgba(33,54,131,.29),transparent 46%),#06091C}
+.closing-copy{font-weight:400}
+.archive-teaser{background:radial-gradient(ellipse at 85% 45%,rgba(21,40,95,.36),transparent 47%),linear-gradient(150deg,#070B20,#0B1231);border-color:rgba(205,217,244,.13)}
+.archive-topline,.archive-bottomline{color:#8797B6}
+.archive-topline span:last-child{color:#D7B49C}
+.archive-stamp{color:rgba(78,106,181,.08)}
+.archive-kicker{color:#AFC1E2}
+.archive-entry{border-color:rgba(215,227,250,.49);background:rgba(25,40,80,.3)}
+.archive-entry:hover{background:rgba(42,66,121,.51)}
+.archive-subtitle{color:#E8E8EC}
+.site-footer{background:#05081B;color:#8E9BB8;border-color:rgba(205,215,239,.16)}
+.back-to-top{background:rgba(8,15,42,.9)}
+.dialog-inner>p a{color:#DEE4F5}
+/* On the spoiler page, keep warning serious, but not bright slasher-red. */
+.spoiler-page{background:radial-gradient(ellipse at 60% 5%,rgba(23,43,99,.24),transparent 42%),#06091D}
+.archive-header{background:rgba(4,8,26,.92)}
+.archive-header>span{color:#B9BED0}
+.archive-header>a:last-child{color:#D8DCEB;border-color:#A4AEC5}
+.classified-overline{color:#B8C8E6}
+.classified-light{background:#F36A37;box-shadow:0 0 18px rgba(243,106,55,.6)}
+.classified-rule{background:#AEBBD9}
+.classified-hero h1 span,.secret-index{color:#D7B8A6}
+.classified-alert{background:linear-gradient(120deg,rgba(32,48,101,.36),rgba(8,12,34,.8));border-color:rgba(232,192,172,.47)}
+.classified-alert strong,.warning-icon{color:#F0C4B1;border-color:#E4B3A1}
+.spoiler-gate{background:#0A1231}
+.spoiler-gate>summary{background:rgba(39,57,112,.2)}
+.spoiler-gate>summary:hover{background:rgba(44,66,131,.35)}
+.spoiler-gate>summary span span{color:#E0BBA6}
+.secret-group li::before{background:#E3BB9F}
+.secret-finish a{color:#DCE1F0}
+/* Small screens preserve the supplied 16:9 reference image without chopping the logo. */
+@media(max-width:760px){
+  .site-header{background:rgba(4,8,26,.72)}
+  .nav{background:rgba(5,10,28,.98)}
+  .hero{min-height:700px;height:100svh}
+  .hero--reference .hero-image{background:radial-gradient(ellipse at 50% 30%,#152251,#050719 83%)}
+  .hero--reference .hero-image>img{object-fit:contain;object-position:center 23%}
+  .hero--reference .hero-shade{background:linear-gradient(180deg,rgba(3,5,15,.28),transparent 18%,rgba(3,5,15,.08) 40%,#050719 78%,#050719)}
+  .hero--reference .hero-center{bottom:115px;padding:0 21px}
+  .hero--reference .hero-copy{font-size:clamp(14px,3.4vw,18px);line-height:2.1;letter-spacing:.12em;margin-bottom:24px}
+  .hero--custom .hero-logo{font-size:clamp(67px,17.1vw,134px)}
+  .hero-rec{top:86px;right:25px;opacity:.56}
+  .hero-bottom{bottom:27px}
+  .hero-actions{gap:10px}
+  .outline-button{background:rgba(8,13,36,.64)}
+  .section{padding-top:90px;padding-bottom:94px}
+  .story-copy p{line-height:2.4}
+  .world-card{min-height:290px}
+}
+@media(max-width:420px){
+  .hero--reference .hero-center{bottom:105px}
+  .hero--reference .hero-copy{font-size:14px}
+  .hero--custom .hero-logo{font-size:18vw}
+  .hero-actions{flex-direction:row;align-items:center;justify-content:center}
+  .hero .outline-button{min-width:0;padding:11px 13px;font-size:11px;gap:7px}
+  .hero .outline-button span{font-size:16px}
+  .hero-rec{top:85px}
+}
+@media(prefers-reduced-motion:reduce){.hero--custom .hero-image>img{animation:none}}
+
+/* Keep the small-screen chapter invitation visually connected to the photo. */
+@media(max-width:760px){
+  .hero--reference .hero-center{bottom:clamp(145px,22svh,215px)}
+}
+@media(max-width:420px){
+  .hero--reference .hero-center{bottom:clamp(145px,22svh,215px)}
+}
