@@ -24,7 +24,7 @@
 .kaii-copy .small-label {flex-shrink:0;}
 .kaii-file-index {float:right;margin-left:13px;font:400 11px var(--font-latin);color:#AFA184;}
 .kaii-grade {display:inline-flex;align-items:center;gap:13px;align-self:flex-start;margin:34px 0 0;padding:6px 13px;border:1px solid rgba(198,165,114,.45);color:#E8D4AF;font:500 12px var(--font-jp);letter-spacing:.12em;}
-.kaii-grade span {color:#D9B49C;padding-left:13px;border-left:1px solid rgba(198,165,114,.4);}
+
 .kaii-copy h3 {margin:17px 0 22px;}
 .kaii-copy h3 small[hidden] {display:none;}
 .kaii-description {flex:1 1 auto;min-height:0;max-height:245px;overflow:auto;padding-right:7px;scrollbar-color:#7B725C transparent;scrollbar-width:thin;}

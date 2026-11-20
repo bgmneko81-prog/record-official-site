@@ -252,19 +252,19 @@
   // Missing PNGs keep the image slot visible, ready for drop-in artwork.
   const kaiiFiles = [
     {
-      name: '虚面', reading: 'うつろめん', grade: '第壱級', threat: '低脅威', image: 'kaii-utsuro.png',
+      name: '虚面', reading: 'うつろめん', threat: '低脅威', image: 'kaii-utsuro.png',
       description: ['顔のない人影のような姿をした怪異。', '人間によく似た輪郭を持ちながら、その顔には表情も目鼻も存在しない。', '彼岸で遭遇する、基本的な怪異の一種。']
     },
     {
-      name: '樹喰', reading: '', grade: '第参級', threat: '中脅威', image: 'kaii-jukui.png',
-      description: ['伊良坂町で記録された怪異の一種。', '第参級に分類されている。詳しい性質には、まだ不明な点が多い。']
+      name: '樹喰', reading: 'じゅくい', threat: '中脅威', image: 'kaii-jukui.png',
+      description: ['伊良坂町で記録された怪異の一種。', '詳しい性質には、まだ不明な点が多い。']
     },
     {
-      name: '壊穣', reading: 'かいじょう', grade: '第肆級', threat: '強脅威', image: 'kaii-kaijo.png',
-      description: ['根や蔓、果実のような異質な肉体を持つ怪異。', '第肆級に分類された、特に危険性の高い存在。']
+      name: '壊穣', reading: 'かいじょう', threat: '強脅威', image: 'kaii-kaijo.png',
+      description: ['根や蔓、果実のような異質な肉体を持つ怪異。', '特に危険性の高い存在。']
     },
     {
-      name: '××', reading: '', grade: '記録なし', threat: '不明', image: 'kaii-unknown.png',
+      name: '××', reading: '', threat: '不明', image: 'kaii-unknown.png',
       description: ['正体に関する情報は、現在も伏せられている。', '残された記録に映る姿は、ほんの一部にすぎない。']
     }
   ];
@@ -277,10 +277,7 @@
     if (!entry) return;
     document.getElementById('kaiiFileIndex').textContent = `${String(index + 1).padStart(2, '0')} / 04`;
     document.getElementById('kaiiFrameMark').textContent = `RECORD / UNKNOWN ${String(index + 1).padStart(3, '0')}`;
-    document.getElementById('kaiiGrade').replaceChildren(document.createTextNode(entry.grade + ' '));
-    const threat = document.createElement('span');
-    threat.textContent = entry.threat;
-    document.getElementById('kaiiGrade').append(threat);
+    document.getElementById('kaiiGrade').textContent = entry.threat;
     document.getElementById('kaiiName').firstChild.textContent = entry.name + ' ';
     const reading = document.getElementById('kaiiReading');
     reading.textContent = entry.reading;
