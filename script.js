@@ -365,4 +365,33 @@
     }, { threshold: .06, rootMargin: '0px 0px -20px 0px' });
     document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
   } else document.querySelectorAll('.reveal').forEach(element => element.classList.add('is-visible'));
+
+  // WORLD: public information only. Click / Enter / Space opens the matching record.
+  const worldDialog = document.getElementById('worldDetailDialog');
+  const worldContent = document.getElementById('worldDetailContent');
+  const worldClose = document.getElementById('worldDetailClose');
+  const worldBack = document.getElementById('worldDetailBack');
+  let lastWorldTrigger = null;
+  function openWorldDetail(trigger) {
+    const name = trigger.dataset.worldOpen;
+    const template = document.getElementById(`world-template-${name}`);
+    if (!template || !worldDialog || !worldContent) return;
+    lastWorldTrigger = trigger;
+    worldContent.replaceChildren(template.content.cloneNode(true));
+    worldDialog.showModal();
+    worldDialog.scrollTop = 0;
+    worldClose.focus();
+  }
+  function closeWorldDetail() { if (worldDialog?.open) worldDialog.close(); }
+  document.querySelectorAll('[data-world-open]').forEach(btn =>
+    btn.addEventListener('click', () => openWorldDetail(btn)));
+  worldClose?.addEventListener('click', closeWorldDetail);
+  worldBack?.addEventListener('click', closeWorldDetail);
+  worldDialog?.addEventListener('click', event => {
+    if (event.target === worldDialog) closeWorldDetail();
+  });
+  worldDialog?.addEventListener('close', () => {
+    worldContent.replaceChildren();
+    if (lastWorldTrigger?.isConnected) lastWorldTrigger.focus({preventScroll: true});
+  });
 })();
