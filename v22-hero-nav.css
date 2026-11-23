@@ -1,0 +1,87 @@
+/* RE:CORD v22 — TOPから各セクションへ移動できる章索引
+   Existing images, sections and WORLD dialogs are unchanged. */
+.hero-section-index {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  color: #EEE5D3;
+  text-shadow: none;
+}
+.hero-section-index-title {
+  margin: 0 0 11px;
+  color: #D6C8AA;
+  font: 500 11px/1.3 var(--font-jp);
+  letter-spacing: .12em;
+}
+.hero-section-index-title span {
+  color: #DCC18D;
+  font-family: var(--font-latin);
+  font-size: 13px;
+  letter-spacing: .2em;
+}
+.hero-section-index-grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0,1fr));
+  border: 1px solid rgba(197,167,115,.62);
+  background: rgba(15,29,23,.82);
+  box-shadow: 0 12px 34px rgba(0,0,0,.24);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.hero-section-index-grid > a {
+  min-width: 0;
+  min-height: 61px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 4px 9px;
+  color: #F0E8D7;
+  font: 500 13px/1.3 var(--font-jp);
+  letter-spacing: .07em;
+  border-right: 1px solid rgba(197,167,115,.26);
+  transition: color .2s, background .2s, box-shadow .2s;
+}
+.hero-section-index-grid > a:last-child { border-right: 0; }
+.hero-section-index-grid > a small {
+  color: #C5A773;
+  font: 500 11px/1 var(--font-latin);
+  letter-spacing: .11em;
+}
+.hero-section-index-grid > a:hover,
+.hero-section-index-grid > a:focus-visible {
+  color: #FFF9EC;
+  background: rgba(113,78,45,.33);
+  box-shadow: inset 0 -3px 0 #C5A773;
+}
+.hero-section-index-grid > a:focus-visible {
+  outline: 2px solid #EEE5D3;
+  outline-offset: -3px;
+}
+/* Keep original hero tagline visible above the new index. */
+.hero--reference .hero-center { bottom: clamp(99px, 9.5vh, 133px); }
+.hero--custom .hero-center { margin-top: 0; }
+.hero--custom .hero-section-index { margin-top: 14px; }
+.hero-copy { margin-bottom: 18px; }
+@media (max-width: 760px) {
+  .hero { min-height: 700px; }
+  .hero--reference .hero-center { bottom: clamp(70px, 10svh, 115px); padding: 0 18px; }
+  .hero-section-index { max-width: 510px; }
+  .hero-section-index-title { font-size: 10px; margin-bottom: 8px; }
+  .hero-section-index-title span { font-size: 12px; }
+  .hero-section-index-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .hero-section-index-grid > a { min-height: 52px; font-size: 12px; padding: 7px 3px; gap: 3px; }
+  .hero-section-index-grid > a:nth-child(4n) { border-right: 0; }
+  .hero-section-index-grid > a:nth-child(-n+4) { border-bottom: 1px solid rgba(197,167,115,.26); }
+  .hero-copy { margin-bottom: 13px; }
+}
+@media (max-width: 420px) {
+  .hero--reference .hero-center { bottom: clamp(65px, 9svh, 100px); }
+  .hero-section-index-grid > a { min-height: 49px; font-size: 11px; }
+  .hero-section-index-grid > a small { font-size: 10px; }
+  .hero--reference .hero-copy { margin-bottom: 12px; }
+}
+@media (max-width: 360px) {
+  .hero-section-index-grid > a { font-size: 10px; }
+  .hero-section-index-title { margin-bottom: 6px; }
+}
